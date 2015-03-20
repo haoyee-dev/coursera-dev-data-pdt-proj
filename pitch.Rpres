@@ -1,0 +1,54 @@
+Calculating the cost of deploying a video conferencing solution
+========================================================
+author: Hao Yee
+date: 21 March 2015
+
+Purpose
+========================================================
+Video conferencing solutions are costly and a rough estimate is required for budgeting. Typically such systems are divided into legacy systems, such as Cisco, and newer mobile-centric cloud offerings such as Blue Jeans.
+
+Given the different components, it would be useful to automatically generate the cost and purchasing required for newer mobile-centric offerings
+
+*<strong>Disclaimer</strong>* <br/>
+Components and features in the following slides are completely fictional but reflective of real-world systems
+
+Components of Video Conferencing
+========================================================
+A video conferencing solution is typically made up of the following components.
+- <strong>Controller</strong>
+    * controls user logins
+    * supports 10 users/controller
+- <strong>Router</strong>
+    * does video and audio data routing between connecting endpoints
+    * supports 5 concurrent calls/router
+- <strong>MCU</strong>
+    * allows user to connect between different systems: e.g Cisco and Lync
+    * support 2 concurrent connections/MCU
+
+Comparison to legacy systems
+========================================================
+Legacy systems such as Cisco are limited in the following areas.
+
+1. High bandwidth required
+  - a private highspeed network is required
+2. Not mobile-centric
+  - room-based system does not allow mobile connectivity
+3. High cost
+  - typical cost of a room-based system is in the tens of thousands
+
+
+Sample Usage of Shiny App
+========================================================
+1. Go to <https://haoyee-dev.shinyapps.io/course-project/>
+2. Enter the number of users
+```{r}
+users <- 11
+```
+3. Tick the checkpoint if there are legacy systems
+4. Enter the cost of each component
+5. Get the estimated total cost displayed
+```{r}
+maxSupport <- 2
+totalCost <- users %/% maxSupport + 1*users%%maxSupport
+```
+Total Cost = $`r totalCost`
